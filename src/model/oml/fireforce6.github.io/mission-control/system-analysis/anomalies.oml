@@ -1,0 +1,5 @@
+﻿description <https://fireforce6.github.io/mission-control/system-analysis/anomalies#> as anomalies {
+
+    uses <https://fireforce6.github.io/mission-control/anomaly#> as anomaly
+
+}
