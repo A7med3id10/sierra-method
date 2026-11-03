@@ -41,6 +41,7 @@ vocabulary <https://www.modelware.io/sierra/base#> as base {
         forward contains
         reverse isContainedBy
         inverse functional
+        irreflexive
     ] < Element
 
     @rdfs:comment "A textual description attached to an Element."

@@ -1,0 +1,65 @@
+
+@dc:title "Fault and Anomaly Reporting Vocabulary"
+@dc:description "Defines anomaly records for spacecraft components."
+
+vocabulary <https://fireforce6.github.io/mission-control/anomaly#> as anomaly {
+
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    extends <https://www.modelware.io/sierra/base#> as base
+    extends <https://www.modelware.io/sierra/component#> as component
+
+    // Main concept
+    concept AnomalyReport < base:Element
+
+    // Allowed severity values
+    scalar Severity [
+        oneOf "Minor", "Major", "Critical"
+    ]
+
+    // Allowed status values
+    scalar Status [
+        oneOf "Open", "Under Review", "Resolved"
+    ]
+
+    // Unique report identifier
+    scalar property reportId [
+        domain AnomalyReport
+        range xsd:string
+        functional
+    ]
+
+    // Affected spacecraft component
+    relation affectsComponent [
+        from AnomalyReport
+        to component:Component
+    ]
+
+    // Severity classification
+    scalar property severity [
+        domain AnomalyReport
+        range Severity
+        functional
+    ]
+
+    // Investigation status
+    scalar property status [
+        domain AnomalyReport
+        range Status
+        functional
+    ]
+
+    // Proposed mitigation
+    scalar property mitigationAction [
+        domain AnomalyReport
+        range xsd:string
+        functional
+    ]
+
+    // Supporting evidence
+    scalar property evidenceReference [
+        domain AnomalyReport
+        range xsd:string
+        functional
+    ]
+}
