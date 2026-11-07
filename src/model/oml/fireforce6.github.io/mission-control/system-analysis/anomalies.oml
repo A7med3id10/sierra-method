@@ -1,5 +1,38 @@
 ﻿description <https://fireforce6.github.io/mission-control/system-analysis/anomalies#> as anomalies {
-
     uses <https://fireforce6.github.io/mission-control/anomaly#> as anomaly
+    extends <https://fireforce6.github.io/mission-control/system-analysis/components#> as components
+    uses <https://www.modelware.io/sierra/base#> as base
 
+    instance AnomalyReport1 : anomaly:AnomalyReport [
+        anomaly:reportId "abc"
+        anomaly:affectsComponent components:Accelerometer
+        base:description "abc"
+        anomaly:severity "Minor"
+        anomaly:status "Open"
+    ]
+
+    instance AnomalyReport2 : anomaly:AnomalyReport [
+        anomaly:reportId "12 hh"
+        anomaly:affectsComponent components:ActiveThermalControl, components:AntennaFeedNetwork
+        anomaly:severity "Minor"
+        anomaly:status "Open"
+        base:description """Follow the rule
+                """
+    ]
+
+    instance AnomalyReport3 : anomaly:AnomalyReport [
+        anomaly:reportId "qwwert"
+        anomaly:affectsComponent components:BatteryCell2
+        base:description "try"
+        anomaly:severity "Major"
+        anomaly:status "Resolved"
+    ]
+
+    instance AnomalyReport4 : anomaly:AnomalyReport [
+        anomaly:reportId "re4"
+        anomaly:affectsComponent components:Accelerometer, components:ActiveThermalControl, components:ADCS, components:AntennaFeedNetwork, components:BatteryCell2, components:BlueFilter
+        base:description "re4"
+        anomaly:severity "Minor"
+        anomaly:status "Open"
+    ]
 }
